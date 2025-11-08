@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OnlineLearn"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".page.explorepage.PublishQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.explorepage.QuestionDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.explorepage.ConsultationDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.ShoppingCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.TrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.MyFavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.MyQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.profilepage.ScoreDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.learnpage.CourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.homepage.coursepage.CourseShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.homepage.SearchResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.homepage.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".page.homepage.MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
