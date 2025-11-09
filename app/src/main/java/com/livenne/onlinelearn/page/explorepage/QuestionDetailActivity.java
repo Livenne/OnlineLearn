@@ -51,24 +51,24 @@ public class QuestionDetailActivity extends AppCompatActivity {
 
         likes = findViewById(R.id.imageView21);
 
-        likes.setOnClickListener(v -> {
-            NetworkUtils.loadResource("/user/question/like/" + questionId, new TypeReference<String>() {
-            }, result -> {
-                Toast.makeText(QuestionDetailActivity.this, result, Toast.LENGTH_LONG).show();
-            });
-        });
+//        likes.setOnClickListener(v -> {
+//            NetworkUtils.loadResource("/user/question/like/" + questionId, new TypeReference<String>() {
+//            }, result -> {
+//                Toast.makeText(QuestionDetailActivity.this, result, Toast.LENGTH_LONG).show();
+//            });
+//        });
 
 
-        NetworkUtils.loadResource("/question/" + questionId , new TypeReference<Question>() {
+        NetworkUtils.loadResource("/question?questionId=" + questionId , new TypeReference<Question>() {
         }, question -> {
             content.setText(question.getQuestion());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             time.setText(format.format(new Date(question.getCreateTime())));
-            NetworkUtils.loadResource("/user/" + question.getUserId() , new TypeReference<UserVo>() {
+            NetworkUtils.loadResource("/user?userId=" + question.getUserId() , new TypeReference<UserVo>() {
             }, user -> {
                 username.setText(user.getUsername());
                 Glide.with(QuestionDetailActivity.this)
-                        .load(NetworkUtils.baseUrl + "/image/" + user.getAvatarUrl())
+                        .load(NetworkUtils.baseUrl + "/image?imageName=" + user.getAvatarUrl())
                         .into(imageView);
             });
         });

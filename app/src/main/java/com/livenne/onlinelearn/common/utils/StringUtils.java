@@ -2,6 +2,7 @@ package com.livenne.onlinelearn.common.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,26 +14,45 @@ public class StringUtils{
             return mapper.writeValueAsString(obj);
         } catch (Exception e) {
             e.printStackTrace();
+            return obj.toString();
         }
-        return null;
     }
+
 
     public static <T> T formJson(String json,TypeReference<T> typeReference) {
         try {
             return mapper.readValue(json, typeReference);
         } catch (Exception e) {
+            if (e instanceof JsonParseException) {
+                try {
+                    String wrappedJson = "\"" + json + "\"";
+                    return mapper.readValue(wrappedJson, typeReference);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public static <T> T formJson(String json,Class<T> clazz) {
         try {
             return mapper.readValue(json, clazz);
         } catch (Exception e) {
+            if (e instanceof JsonParseException) {
+                try {
+                    String wrappedJson = "\"" + json + "\"";
+                    return mapper.readValue(wrappedJson, clazz);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public static DecodedJWT getDecoded(){

@@ -55,16 +55,16 @@ public class RegisterActivity extends AppCompatActivity {
                     password.getText().toString(),
                     confirmPassword.getText().toString()
             );
-            NetworkUtils.loadResource("/user/register",
+            NetworkUtils.loadResource("/auth/register",
                     StringUtils.toJson(userRegisterDTO),
-                    new TypeReference<Map<String, String>>() {},
+                    new TypeReference<String>() {},
                     result -> {
-                        if (result == null || result.get("token") == null || result.get("token").trim().isEmpty()) return;
+                        if (result == null || result.trim().isEmpty()) return;
                         SharedPreferences preferences = getSharedPreferences("user",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("token",result.get("token"));
+                        editor.putString("token",result);
                         editor.apply();
-                        NetworkUtils.token = result.get("token");
+                        NetworkUtils.token = result;
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
                     });

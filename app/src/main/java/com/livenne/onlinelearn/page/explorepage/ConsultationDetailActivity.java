@@ -48,7 +48,7 @@ public class ConsultationDetailActivity extends AppCompatActivity {
         date = findViewById(R.id.textView31);
         content = findViewById(R.id.textView32);
 
-        NetworkUtils.loadResource("/consultation/" + consultationId, new TypeReference<Consultation>() {
+        NetworkUtils.loadResource("/consultation?consultationId=" + consultationId, new TypeReference<Consultation>() {
         }, result -> {
             name.setText(result.getName());
             SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");

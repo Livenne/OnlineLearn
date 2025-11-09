@@ -54,11 +54,11 @@ public class CourseListAdapter extends BaseAdapter {
         TextView teacher = convertView.findViewById(R.id.textView17);
 
         View finalConvertView = convertView;
-        NetworkUtils.loadResource("/course/" + userCourse.getCourseId(), new TypeReference<Course>() {
+        NetworkUtils.loadResource("/course?courseId=" + userCourse.getCourseId(), new TypeReference<Course>() {
         },course->{
 
             Glide.with(context)
-                    .load(NetworkUtils.baseUrl + "/image/" + course.getCoverUrl())
+                    .load(NetworkUtils.baseUrl + "/image?imageName=" + course.getCoverUrl())
                     .into(imageView);
             name.setText(course.getName());
             teacher.setText(course.getTeacher());

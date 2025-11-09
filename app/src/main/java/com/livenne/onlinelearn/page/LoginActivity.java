@@ -33,17 +33,16 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences preferences = getSharedPreferences("user",MODE_PRIVATE);
-        NetworkUtils.token = preferences.getString("token", "");
-        NetworkUtils.loadResource("/user/verify",
-                StringUtils.toJson(Map.of("token",NetworkUtils.token)),
-                new TypeReference<Map<String, Boolean>>() {},
-                result -> {
-                    if (result.get("verify") != null && Boolean.TRUE.equals(result.get("verify"))){
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    }
-                });
+//        NetworkUtils.token = preferences.getString("token", "");
+//        NetworkUtils.loadResource("/user/verify",
+//                StringUtils.toJson(Map.of("token",NetworkUtils.token)),
+//                new TypeReference<Map<String, Boolean>>() {},
+//                result -> {
+//                    if (result.get("verify") != null && Boolean.TRUE.equals(result.get("verify"))){
+//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                        startActivity(intent);
+//                    }
+//                });
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
@@ -64,15 +63,16 @@ public class LoginActivity extends AppCompatActivity {
         });
         button.setOnClickListener(v -> {
             UserLoginDTO userLoginDTO = new UserLoginDTO(username.getText().toString(), password.getText().toString());
-            NetworkUtils.loadResource("/user/login",
+            NetworkUtils.loadResource("/auth/login",
                     StringUtils.toJson(userLoginDTO),
-                    new TypeReference<Map<String, String>>() {},
+                    new TypeReference<String>() {},
                     result -> {
-                        if (result == null || result.get("token") == null || result.get("token").trim().isEmpty()) return;
+                        if (result == null || result.trim().isEmpty()) return;
+                        SharedPreferences preferences = getSharedPreferences("user",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("token",result.get("token"));
+                        editor.putString("token",result);
                         editor.apply();
-                        NetworkUtils.token = result.get("token");
+                        NetworkUtils.token = result;
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     });

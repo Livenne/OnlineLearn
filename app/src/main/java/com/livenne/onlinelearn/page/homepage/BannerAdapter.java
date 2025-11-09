@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.livenne.onlinelearn.R;
 import com.livenne.onlinelearn.common.model.Course;
 import com.livenne.onlinelearn.common.utils.NetworkUtils;
@@ -34,7 +35,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
     public void onBindViewHolder(@NonNull BannerViewHolder holder, int position) {
 
         Glide.with(holder.context)
-                .load(NetworkUtils.baseUrl + "/image/" +courseList.get(position % 3).getCoverUrl())
+                .load(NetworkUtils.baseUrl + "/image?imageName=" +courseList.get(position % 3).getCoverUrl())
                 .into(holder.imageView);
     }
 

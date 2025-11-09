@@ -61,10 +61,10 @@ public class SquareListViewAdapter extends BaseAdapter {
         TextView likes = convertView.findViewById(R.id.likes);
         TextView comments = convertView.findViewById(R.id.comments);
 
-        NetworkUtils.loadResource("/user/" + question.getUserId(), new TypeReference<UserVo>() {
+        NetworkUtils.loadResource("/user?userId=" + question.getUserId(), new TypeReference<UserVo>() {
         }, result -> {
             Glide.with(context)
-                    .load(NetworkUtils.baseUrl + "/image/" + result.getAvatarUrl())
+                    .load(NetworkUtils.baseUrl + "/image?imageName=" + result.getAvatarUrl())
                     .into(imageView);
             username.setText(result.getUsername());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");

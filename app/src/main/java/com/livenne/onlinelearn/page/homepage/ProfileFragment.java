@@ -87,13 +87,13 @@ public class ProfileFragment extends Fragment {
         TextView username = inflate.findViewById(R.id.username);
         TextView userId = inflate.findViewById(R.id.userid);
         NetworkUtils.loadResource(
-                "/user/" + StringUtils.getDecoded().getIssuer(),
+                "/user?userId=" + StringUtils.getDecoded().getIssuer(),
                 new TypeReference<UserVo>() {},
                 result -> {
                     username.setText(result.getUsername());
                     userId.setText(result.getUserId().toString());
                     Glide.with(inflate.getContext())
-                            .load(NetworkUtils.baseUrl + "/image/" + result.getAvatarUrl())
+                            .load(NetworkUtils.baseUrl + "/image?imageName=" + result.getAvatarUrl())
                             .into(imageView);
                 });
 

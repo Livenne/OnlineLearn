@@ -40,21 +40,21 @@ public class PublishQuestionActivity extends AppCompatActivity {
         editText = findViewById(R.id.question);
         button = findViewById(R.id.button);
 
-        button.setOnClickListener(v -> {
-            String text = editText.getText().toString();
-
-            Question questionModel = new Question();
-            questionModel.setQuestion(text);
-            finish();
-            NetworkUtils.loadResource("/question/upload",
-                    StringUtils.toJson(questionModel),
-                    new TypeReference<Question>() {},
-                    question -> {
-                Intent intent = new Intent(PublishQuestionActivity.this, QuestionDetailActivity.class);
-                intent.putExtra("questionId",question.getQuestionId());
-                startActivity(intent);
-            });
-
-        });
+//        button.setOnClickListener(v -> {
+//            String text = editText.getText().toString();
+//
+//            Question questionModel = new Question();
+//            questionModel.setQuestion(text);
+//            finish();
+//            NetworkUtils.loadResource("/question/upload",
+//                    StringUtils.toJson(questionModel),
+//                    new TypeReference<Question>() {},
+//                    question -> {
+//                Intent intent = new Intent(PublishQuestionActivity.this, QuestionDetailActivity.class);
+//                intent.putExtra("questionId",question.getQuestionId());
+//                startActivity(intent);
+//            });
+//
+//        });
     }
 }

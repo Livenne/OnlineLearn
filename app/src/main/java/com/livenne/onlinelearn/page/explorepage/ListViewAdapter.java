@@ -60,7 +60,7 @@ public class ListViewAdapter extends BaseAdapter {
         Consultation consultation = consultationList.get(position);
 
         Glide.with(context)
-                .load(NetworkUtils.baseUrl + "/image/" + consultation.getCoverUrl())
+                .load(NetworkUtils.baseUrl + "/image?imageName=" + consultation.getCoverUrl())
                 .into(imageView);
         name.setText(consultation.getName());
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");

@@ -34,7 +34,7 @@ public class CourseIntroductionFragment extends Fragment {
         TextView teacher = inflate.findViewById(R.id.textView);
         TextView desc = inflate.findViewById(R.id.textView2);
 
-        NetworkUtils.loadResource("/course/" + courseId, new TypeReference<Course>() {
+        NetworkUtils.loadResource("/course?courseId=" + courseId, new TypeReference<Course>() {
         }, result -> {
             teacher.setText(result.getTeacher());
             desc.setText(result.getIntroduction());

@@ -50,12 +50,12 @@ public class CourseActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView14);
         name = findViewById(R.id.textView23);
 
-        NetworkUtils.loadResource("/course/" + courseId, new TypeReference<Course>() {
+        NetworkUtils.loadResource("/course?courseId=" + courseId, new TypeReference<Course>() {
         },course->{
             title.setText(course.getName()+" - 课程学习");
             name.setText(course.getName());
             Glide.with(CourseActivity.this)
-                    .load(NetworkUtils.baseUrl + "/image/" + course.getCoverUrl())
+                    .load(NetworkUtils.baseUrl + "/image?imageName=" + course.getCoverUrl())
                     .into(imageView);
         });
 

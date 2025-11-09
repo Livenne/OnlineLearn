@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.livenne.onlinelearn.R;
 import com.livenne.onlinelearn.common.model.Course;
 import com.livenne.onlinelearn.common.utils.NetworkUtils;
@@ -60,7 +61,7 @@ public class GridViewAdapter extends BaseAdapter {
 
         Course course = courseList.get(position);
         Glide.with(context)
-                .load(NetworkUtils.baseUrl + "/image/" + course.getCoverUrl())
+                .load(NetworkUtils.baseUrl + "/image?imageName=" + course.getCoverUrl())
                 .into(imageView);
         name.setText(course.getName());
         price.setText(course.getPrice().toString());
