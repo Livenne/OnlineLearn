@@ -14,6 +14,7 @@ public class StringUtils{
             return mapper.writeValueAsString(obj);
         } catch (Exception e) {
             e.printStackTrace();
+            if (obj == null) return null;
             return obj.toString();
         }
     }

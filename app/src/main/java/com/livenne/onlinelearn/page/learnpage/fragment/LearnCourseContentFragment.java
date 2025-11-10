@@ -12,6 +12,12 @@ import com.livenne.onlinelearn.R;
 
 public class LearnCourseContentFragment extends Fragment {
 
+    private Long courseId;
+
+    public LearnCourseContentFragment(Long courseId) {
+        this.courseId = courseId;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

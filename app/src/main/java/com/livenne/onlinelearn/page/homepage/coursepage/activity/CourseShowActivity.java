@@ -1,6 +1,7 @@
 package com.livenne.onlinelearn.page.homepage.coursepage.activity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.livenne.onlinelearn.R;
 import com.livenne.onlinelearn.common.model.Course;
+import com.livenne.onlinelearn.common.utils.NetworkCallable;
 import com.livenne.onlinelearn.common.utils.NetworkUtils;
 import com.livenne.onlinelearn.page.homepage.coursepage.adapter.CourseShowAdapter;
 
@@ -29,7 +31,11 @@ public class CourseShowActivity extends AppCompatActivity {
     private TextView name;
     private ImageView imageView;
     private Long courseId;
-
+    private TextView favorite;
+    private TextView like;
+    private TextView shoppingcart;
+    private Button joincart;
+    private Button buy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,25 @@ public class CourseShowActivity extends AppCompatActivity {
         title = findViewById(R.id.textView);
         name = findViewById(R.id.textView2);
         imageView = findViewById(R.id.imageView2);
+        favorite = findViewById(R.id.favorite);
+        favorite.setOnClickListener(v -> {
+            NetworkUtils.loadResource("/course/favorite?courseId=" + courseId, new TypeReference<>() {
+            }, result -> {});
+        });
+        like = findViewById(R.id.like);
+        like.setOnClickListener(v -> {
+            NetworkUtils.loadResource("/course/like?courseId=" + courseId, new TypeReference<>() {
+            }, result -> {});
+        });
+        shoppingcart = findViewById(R.id.shoppingcart);
+        shoppingcart.setOnClickListener(v -> {
+        });
+        joincart = findViewById(R.id.joincart);
+        favorite.setOnClickListener(v -> {
+            NetworkUtils.loadResource("/user/shoppingcart/join?courseId=" + courseId, new TypeReference<>() {
+            }, result -> {});
+        });
+        buy = findViewById(R.id.buy);
 
         NetworkUtils.loadResource("/course?courseId=" + courseId, new TypeReference<Course>() {
         }, result -> {

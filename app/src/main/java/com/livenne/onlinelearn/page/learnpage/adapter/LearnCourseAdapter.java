@@ -10,17 +10,20 @@ import com.livenne.onlinelearn.page.learnpage.fragment.LearnCourseContentFragmen
 import com.livenne.onlinelearn.page.learnpage.fragment.LearnCourseTrainingFragment;
 
 public class LearnCourseAdapter extends FragmentStateAdapter {
-    public LearnCourseAdapter(@NonNull FragmentActivity fragmentActivity) {
+
+    private Long courseId;
+    public LearnCourseAdapter(@NonNull FragmentActivity fragmentActivity,Long courseId) {
         super(fragmentActivity);
+        this.courseId = courseId;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 1: return new LearnCourseTrainingFragment();
-            case 2: return new LearnCourseCommentFragment();
-            default: return new LearnCourseContentFragment();
+            case 1: return new LearnCourseTrainingFragment(courseId);
+            case 2: return new LearnCourseCommentFragment(courseId);
+            default: return new LearnCourseContentFragment(courseId);
         }
     }
 

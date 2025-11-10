@@ -61,7 +61,7 @@ public class CourseActivity extends AppCompatActivity {
         });
 
 
-        LearnCourseAdapter learnCourseAdapter = new LearnCourseAdapter(this);
+        LearnCourseAdapter learnCourseAdapter = new LearnCourseAdapter(this,courseId);
         viewPager.setAdapter(learnCourseAdapter);
 
         new TabLayoutMediator(tabLayout,viewPager,(tab,position)->{

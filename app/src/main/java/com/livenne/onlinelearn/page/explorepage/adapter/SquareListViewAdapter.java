@@ -49,7 +49,6 @@ public class SquareListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Long questionId = (long) (position + 1);
         Question question = questionList.get(position);
 
         convertView = LayoutInflater.from(context)
@@ -79,7 +78,7 @@ public class SquareListViewAdapter extends BaseAdapter {
 
         convertView.setOnClickListener(v -> {
             Intent intent = new Intent(context, QuestionDetailActivity.class);
-            intent.putExtra("questionId", questionId);
+            intent.putExtra("questionId", question.getQuestionId());
             context.startActivity(intent);
         });
         return convertView;

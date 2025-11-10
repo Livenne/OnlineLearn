@@ -3,6 +3,7 @@ package com.livenne.onlinelearn.page.explorepage.activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,12 +51,10 @@ public class QuestionDetailActivity extends AppCompatActivity {
 
         likes = findViewById(R.id.imageView21);
 
-//        likes.setOnClickListener(v -> {
-//            NetworkUtils.loadResource("/user/question/like/" + questionId, new TypeReference<String>() {
-//            }, result -> {
-//                Toast.makeText(QuestionDetailActivity.this, result, Toast.LENGTH_LONG).show();
-//            });
-//        });
+        likes.setOnClickListener(v -> {
+            NetworkUtils.loadResource("/question/like?questionId=" + questionId, new TypeReference<>() {
+            }, result -> {});
+        });
 
 
         NetworkUtils.loadResource("/question?questionId=" + questionId , new TypeReference<Question>() {

@@ -1,5 +1,6 @@
 package com.livenne.onlinelearn.page.explorepage.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.livenne.onlinelearn.R;
+import com.livenne.onlinelearn.common.model.Question;
+import com.livenne.onlinelearn.common.utils.NetworkUtils;
+import com.livenne.onlinelearn.common.utils.StringUtils;
 
 public class PublishQuestionActivity extends AppCompatActivity {
 
@@ -35,21 +40,21 @@ public class PublishQuestionActivity extends AppCompatActivity {
         editText = findViewById(R.id.question);
         button = findViewById(R.id.button);
 
-//        button.setOnClickListener(v -> {
-//            String text = editText.getText().toString();
-//
-//            Question questionModel = new Question();
-//            questionModel.setQuestion(text);
-//            finish();
-//            NetworkUtils.loadResource("/question/upload",
-//                    StringUtils.toJson(questionModel),
-//                    new TypeReference<Question>() {},
-//                    question -> {
-//                Intent intent = new Intent(PublishQuestionActivity.this, QuestionDetailActivity.class);
-//                intent.putExtra("questionId",question.getQuestionId());
-//                startActivity(intent);
-//            });
-//
-//        });
+        button.setOnClickListener(v -> {
+            String text = editText.getText().toString();
+
+            Question questionModel = new Question();
+            questionModel.setQuestion(text);
+            finish();
+            NetworkUtils.loadResource("/user/question/publish",
+                    StringUtils.toJson(questionModel),
+                    new TypeReference<Long>() {},
+                    result -> {
+                Intent intent = new Intent(PublishQuestionActivity.this, QuestionDetailActivity.class);
+                intent.putExtra("questionId",result);
+                startActivity(intent);
+            });
+
+        });
     }
 }

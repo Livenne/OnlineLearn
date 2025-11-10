@@ -18,6 +18,9 @@
         android:theme="@style/Theme.OnlineLearn"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".page.learnpage.activity.CourseCommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".page.explorepage.activity.PublishQuestionActivity"
             android:exported="false" />
         <activity
