@@ -18,52 +18,52 @@
         android:theme="@style/Theme.OnlineLearn"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".page.explorepage.PublishQuestionActivity"
+            android:name=".page.explorepage.activity.PublishQuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".page.RegisterActivity"
+            android:name=".page.loginpage.activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".page.explorepage.QuestionDetailActivity"
+            android:name=".page.explorepage.activity.QuestionDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.explorepage.ConsultationDetailActivity"
+            android:name=".page.explorepage.activity.ConsultationDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.OrderActivity"
+            android:name=".page.profilepage.activity.OrderActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.ShoppingCartActivity"
+            android:name=".page.profilepage.activity.ShoppingCartActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.TrainingActivity"
+            android:name=".page.profilepage.activity.TrainingActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.MessageActivity"
+            android:name=".page.profilepage.activity.MessageActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.MyFavoriteActivity"
+            android:name=".page.profilepage.activity.MyFavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.MyQuestionActivity"
+            android:name=".page.profilepage.activity.MyQuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.ScoreDetailActivity"
+            android:name=".page.profilepage.activity.ScoreDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.learnpage.CourseActivity"
+            android:name=".page.learnpage.activity.CourseActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.coursepage.CourseShowActivity"
+            android:name=".page.homepage.coursepage.activity.CourseShowActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.SearchResultActivity"
+            android:name=".page.homepage.activity.SearchResultActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.SearchActivity"
+            android:name=".page.homepage.activity.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".page.LoginActivity"
+            android:name=".page.loginpage.activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,7 +72,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".page.homepage.MainActivity"
+            android:name=".page.homepage.activity.MainActivity"
             android:exported="false" />
     </application>
 
