@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.homepage.activity.MainActivity">
+    tools:context=".feature.main.MainActivity">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
@@ -21,6 +21,8 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIconTint="@color/tab_icon_selector"
+        app:tabTextColor="@color/tab_icon_selector"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

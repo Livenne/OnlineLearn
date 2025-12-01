@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.profilepage.activity.ShoppingCartActivity">
+    tools:context=".feature.profile.ShoppingCartActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -44,6 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
         <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
 

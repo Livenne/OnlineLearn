@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="primary">#057DFD</color>
+    <color name="unSelect">#D7D8E3</color>
+    <color name="shadow">#98BBCE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_gray">#BEBEBE</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="learn_theme">#75F9FD</color>
+    <color name="profile_theme">#FCCA00</color>
+    <color name="search_background">#F3F9FF</color>
+
     <color name="score">#FF6B6B</color>
     <color name="text_tint">#999999</color>
     <color name="colorPrimaryDark">#556270</color>
     <color name="colorAccent">#4ECDC4</color>
-    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFEB3B</color>
     <color name="card_background">#FFFFFF</color>
     <color name="text_primary">#333333</color>
     <color name="text_secondary">#666666</color>

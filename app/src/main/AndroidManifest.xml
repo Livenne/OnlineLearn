@@ -18,65 +18,67 @@
         android:theme="@style/Theme.OnlineLearn"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".page.learnpage.activity.CourseCommentActivity"
+            android:name=".feature.learn.CourseCommentActivity"
             android:exported="false" />
         <activity
-            android:name=".page.explorepage.activity.PublishQuestionActivity"
+            android:name=".feature.explore.PublishQuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".page.loginpage.activity.RegisterActivity"
+            android:name=".feature.auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".page.explorepage.activity.QuestionDetailActivity"
+            android:name=".feature.explore.QuestionDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.explorepage.activity.ConsultationDetailActivity"
+            android:name=".feature.explore.ConsultationDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.OrderActivity"
+            android:name=".feature.profile.OrderActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.ShoppingCartActivity"
+            android:name=".feature.profile.ShoppingCartActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.TrainingActivity"
+            android:name=".feature.profile.TrainingActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.MessageActivity"
+            android:name=".feature.profile.MessageActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.MyFavoriteActivity"
+            android:name=".feature.profile.MyFavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.MyQuestionActivity"
+            android:name=".feature.profile.MyQuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".page.profilepage.activity.ScoreDetailActivity"
+            android:name=".feature.profile.ScoreDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".page.learnpage.activity.CourseActivity"
+            android:name=".feature.learn.CourseActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.coursepage.activity.CourseShowActivity"
+            android:name=".feature.home.coursepage.activity.CourseShowActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.activity.SearchResultActivity"
+            android:name=".feature.home.SearchResultActivity"
             android:exported="false" />
         <activity
-            android:name=".page.homepage.activity.SearchActivity"
+            android:name=".feature.home.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".page.loginpage.activity.LoginActivity"
-            android:exported="true">
+            android:name=".feature.auth.LoginActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".feature.main.MainActivity"
+            android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".page.homepage.activity.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
